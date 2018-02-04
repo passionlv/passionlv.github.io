@@ -81,4 +81,37 @@ livere_data_uid=XXXX #来必力City版安装代码中的data-uid
 ## 上传至Github
 上传之前需要注册github账号，并创建username.github.io的*repository*。关于github pages的使用，可参考[github pages官方帮助](https://help.github.com/articles/what-is-github-pages/)  
 当完成上面工作后，需要进行将文件夹上传只github，才能通过http(s)://username.github.io直接访问博客。需要做如下工作：  
+### 设置SSH key
+首先，在本地生成ssk key：
+```
+$cd ～/.ssh  //检查是否已经存在ssh，如果存在可以先备份
+$ssh-keygen -t rsa -C xxxxx@gmail.com #注册github时的email
+```
+然后，登陆github，在个人主页的右上角，找到settings链接，选择“**SSH and GPG keys**”页面，点击**New SSH key**中，在Title中设置注册的邮箱，在key中将生成的key文件（默认的位置是~/.ssh/id_rsa.pub）内容复制进来即可。通过ssh命令验证是否设置成功，如果出现下面提示表示设置成功：
+```
+$ssh -T git@github.com
+Hi passionlv! You've successfully authenticated, but GitHub does not provide shell access.
+
+```
+### 设置并上传git仓库
+
+进入到存放jekyll项目的文件夹，执行如下命令：
+```
+#建立git仓库
+git init 
+#将项目中所有文件添加到仓库
+git add . 
+#将add的文件commit到仓库
+git commit -m “注释语句”
+#将本地仓库关联到github上，如果创建错误的话，需要git remote rm origin去删除后重新创建
+git remote add origin https://github.com/passionlv/notebook.git/passionlv.github.io.git
+#上传代码到github，执行过后需要输入github用户名和密码
+git push -u origin master
+
+#如果有博客更新，也就是修改了_post下面文件，可以
+git status
+git commit -a 
+git push -u origin master
+```
+
 
