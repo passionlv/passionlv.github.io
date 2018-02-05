@@ -19,7 +19,7 @@ author: xiaopeng
 date: 2018-02-04 22:31:00 +0800
 安装软件及命令如下：
 1. ruby ： sudo apt-get install ruby
-2. ruby-dev : sudo apt-get install ruby-dev 
+2. ruby-dev : sudo apt-get install ruby-dev
 3. jekyll : sudo gem install jekyll
 4. bundler : sudo gem install bunduler
 5. nodejs : sudo gem install nodeis
@@ -35,7 +35,7 @@ PS： Ruby 的gem类似于Python的pip。gem程序是基于ruby的组件或者�
 
 ### 启动jekyll theme
 输入如下命令：
-1. 下载jekyll模板`git clone https://github.com/Gaohaoyang/gaohaoyang.github.io.git` 
+1. 下载jekyll模板`git clone https://github.com/Gaohaoyang/gaohaoyang.github.io.git`
 2. 进入到模板文件夹内
 3. `jekyll s`  
 
@@ -51,7 +51,7 @@ PS： Ruby 的gem类似于Python的pip。gem程序是基于ruby的组件或者�
 1. 在index.html中修改标题。
 2. 在_config.yml中修改title， brief-intro两项内容
 
-注意：修改完_config.yml后，刷新浏览器并不能看到修改，需要重新执行：jekyll build。 
+注意：修改完_config.yml后，刷新浏览器并不能看到修改，需要重新执行：jekyll build。
 关于修改配置文件，在网上找到如下教程：
 1. https://yq.aliyun.com/articles/26324  
 #### 修改访问统计
@@ -77,6 +77,34 @@ livere_data_uid=XXXX #来必力City版安装代码中的data-uid
 2. 运行：dpkg -i remarkable_1.62_all.deb （注意版本号可能会稍有不同）
 3. sudo apt-get install -f （这个很关键，否则直接执行无法运行）
 4. remarkable &   （&表示设置此进程为后台进程）
+用了几天remarkable感觉预览显示有些bug，无法精确定位显示编辑位置。所有尝试下载atom，据说也是github出品。
+
+#### 安装atom编辑器
+1. 官网下载deb文件
+2. 运行：dpkg -i atom-amd64.deb
+3. sudo apt-get install -f （这个很关键，否则直接执行无法运行）
+4. atom   （&表示设置此进程为后台进程）
+
+关于atom编辑器，有几个使用技巧：
+1. 官方文档：[Atom Flight Manual](https://flight-manual.atom.io/)
+2. 快捷键：*Ctrl+Shift+P*
+3. 中文拼写检查较烂，因此可以关闭拼写检查。“command+shift+p”关闭“spell check toggle” 选项。或者直接在package中将其disable掉。
+4. markdown实时预览功能。在setting->package中将**markdown-preview**插件*disable*，然后在setting->install中安装**markdown-preview-plus**插件。
+5. 在设置中常见**toggle**，该单位可理解为开关，选中它后切换开或关。
+6. tree-view:toggle，表示打开或关闭树型目录窗口
+7. 关于theme，我选择了一个最受欢迎的atom-material-ui，在setting->install搜索安装即可。
+
+关于atom编辑器git功能，我单独说下：
+1. 打开快捷：github=ctrl+8,git=ctrl+9，通过右下角的files切换两者
+2. 通过github.clone命令去clone相应的文件
+3. 在git窗口，一般的操作顺序是：
+  - 文件修改后会出现在Unstaged Changes栏
+  - 点击Stage All将修改过的文件加到Staged Changes栏
+  - 如提交，在commit message中增加提交附录，然后点击下面**commit**按钮
+  - 
+
+
+
 
 ## 上传至Github
 上传之前需要注册github账号，并创建username.github.io的*repository*。关于github pages的使用，可参考[github pages官方帮助](https://help.github.com/articles/what-is-github-pages/)  
@@ -98,9 +126,9 @@ Hi passionlv! You've successfully authenticated, but GitHub does not provide she
 进入到存放jekyll项目的文件夹，执行如下命令：
 ```
 #建立git仓库
-git init 
+git init
 #将项目中所有文件添加到仓库
-git add . 
+git add .
 #将add的文件commit到仓库
 git commit -m “注释语句”
 #将本地仓库关联到github上，如果创建错误的话，需要git remote rm origin去删除后重新创建
@@ -110,8 +138,6 @@ git push -u origin master
 
 #如果有博客更新，也就是修改了_post下面文件，可以
 git status
-git commit -a 
+git commit -a
 git push -u origin master
 ```
-
-
