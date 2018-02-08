@@ -2,7 +2,7 @@
 layout: post
 title:  "基于sklearn和python的机器学习-视频教程"
 categories: 学习
-tags:  学习笔记 机器学习 视频教程
+tags:  学习笔记 机器学习 视频教程 sklearn python
 author: xiaopeng
 ---
 
@@ -18,15 +18,23 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
 
 ### 0. 教程概况
 
-讲解人介绍：Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自动字幕，使得英文听课全无压力。此外，Kevin还有30讲的pandas教程，值得推荐，在B站和Youtube都有。
+讲解人介绍： [Data School](http://www.dataschool.io/)的Kevin Markham讲解的10次课程。语速慢，配合youtube自动字幕，使得英文听课全无压力。此外，Kevin还有30讲的pandas教程，值得推荐，在B站和Youtube都有。
 
 课程时间：2015-2016年
 
-课程资源：
+##### 课程资源：
+- [Data School官方网站](http://www.dataschool.io/)
 - 课程视频地址： [Youtube地址](http://bit.ly/scikit-learn-videos)
 - 课程源代码 [Github地址](https://github.com/justmarkham/scikit-learn-videos)
 - 课程 [在线jupyter](https://nbviewer.jupyter.org/github/justmarkham/scikit-learn-videos/tree/master/)， 使用vbviewer网站提供的在线jupyter，非常不错的网站。 此外本课程在可以通过 [binder](https://hub.mybinder.org/user/justmarkham-scikit-learn-videos-whvo30at/tree)  网站在线加载notebook，无需下载情况下在线运行。
 - 课程 [Blog](http://blog.kaggle.com/2015/04/08/new-video-series-introduction-to-machine-learning-with-scikit-learn/)  blog里面视频播放地址、课程主要内容讲义、其他资料链接，非常有用。 当然作者github上的Notebook文件内容更详细和完整。
+
+##### 课外资(Kevin推荐的资料)：
+
+- An Introduction to Statistical Learning (book): http://www-bcf.usc.edu/~gareth/ISL/
+- Learning Paradigms (video): http://work.caltech.edu/library/014.html
+
+
 
 ##### 主要内容（主要翻译自作者github README）
 1. 机器学习概念及工作原理
@@ -51,23 +59,41 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
 ### 1. 什么是机器学习，它如何工作？ ([视频](https://www.youtube.com/watch?v=elojMnjn4kk&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=1), [代码](01_machine_learning_intro.ipynb), [博客](http://blog.kaggle.com/2015/04/08/new-video-series-introduction-to-machine-learning-with-scikit-learn/))
 #### 主要内容
   - 什么是机器学习?
-  - 机器学习的两个主要类别是什么?
+  - 机器学习的两个主要类别：监督学习和非监督学习，本视频主要为监督学习。
   - 机器学习实例
   - 机器学习如何工作?
 
 ### 2. 使用Python进行机器学习: scikit-learn and IPython Notebook ([视频](https://www.youtube.com/watch?v=IsXXlYVBt1M&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=2), [代码](02_machine_learning_setup.ipynb), [博客](http://blog.kaggle.com/2015/04/15/scikit-learn-video-2-setting-up-python-for-machine-learning/))
 #### 主要内容
   - scikit-learn优缺点
-  - scikit-learn安装
-  - IPython Notebook使用
+    - 优点1：机器学习的模型接口都是统一和一致的。例如fix，predict等
+    - 优点2：提供很多参数以便于调参，同时还设定了常见的默认值
+    - 优点3：非常好的文档
+    - 优点4：有丰富的函数集，用于参数优化、数据处理、。。。
+    - 优点5：活跃的社区，用户群，在stack overflow中很多人在提问和回答
+    - 缺点1： 对于初学者有难度
+    - 缺点2： 相比较R语言来说，强调模型调参，而不是模型的理解。偏实用，而不是偏解释说明。
+  - scikit-learn安装：建议直接用Anaconda，我一直也是这么用的。
+  - IPython Notebook使用：说明了几个快捷键，并建议参考官方指南
   - Python的学习资源
+    - 讲义中介绍了几个课程，这里不再赘述。
 
 ### 3. 通过著名的iris数据集开始scikit-learn ([video](https://www.youtube.com/watch?v=hd1W4CyPX58&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=3), [notebook](03_getting_started_with_iris.ipynb), [blog post](http://blog.kaggle.com/2015/04/22/scikit-learn-video-3-machine-learning-first-steps-with-the-iris-dataset/))
 #### 主要内容
   - 著名的iris数据集，以及其与机器学习的关系
   - 在scikit-learn加载数据集?
+    - 可以在UCI网站在线下载或者用sklearn.datasets中load_iris    
   - 如何用机器学习术语描述数据集
+    - 行是observation，也被称为样本，例子，实例或记录
+    - 列是feature，也称为特征，属性，独立变量，输入等。(also known as: predictor, attribute, independent variable, input, regressor, covariate)
+    - 结果标签，也被称为标签，目标，预测值，输出等。
   - scikit-learn对分析数据的四个关键的需求
+    - 特征和结果标签**分别存储**在两个对象中
+    - 特征和结果标签必须是**数字的**，如果是类别，需要将其编码到数字
+    - 特征和结果便签的对象格式必须是numpy的**ndarray类**
+    - 特征和结果标签的维度必须是特定的。特征为2维，行是特定样本，列表示样本特征，结果标签为1维，表示其列别或真实数值，分别对应分类和回归问题
+
+在sklearn中，通常将存储特征的对象命名为X，存储结果标签的对象定义为Y。X和Y一般都是大写，表示为矩阵。
 
 ### 4. 通过scikit-learn训练模型 ([video](https://www.youtube.com/watch?v=RlQuVL6-qe8&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=4), [notebook](04_model_training.ipynb), [blog post](http://blog.kaggle.com/2015/04/30/scikit-learn-video-4-model-training-and-prediction-with-k-nearest-neighbors/))
 #### 主要内容
