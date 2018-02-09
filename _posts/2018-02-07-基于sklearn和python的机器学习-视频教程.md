@@ -4,6 +4,7 @@ title:  "基于sklearn和python的机器学习-视频教程"
 categories: 学习
 tags:  学习笔记 机器学习 视频教程 sklearn python
 author: xiaopeng
+mathjax: true
 ---
 
 * content
@@ -55,14 +56,12 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
 ##### 个人感受
 
 ### 1. 什么是机器学习，它如何工作？ ([视频](https://www.youtube.com/watch?v=elojMnjn4kk&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=1), [代码](01_machine_learning_intro.ipynb), [博客](http://blog.kaggle.com/2015/04/08/new-video-series-introduction-to-machine-learning-with-scikit-learn/))
-#### 主要内容
   - 什么是机器学习?
   - 机器学习的两个主要类别：监督学习和非监督学习，本视频主要为监督学习。
   - 机器学习实例
   - 机器学习如何工作?
 
 ### 2. 使用Python进行机器学习: scikit-learn and IPython Notebook ([视频](https://www.youtube.com/watch?v=IsXXlYVBt1M&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=2), [代码](02_machine_learning_setup.ipynb), [博客](http://blog.kaggle.com/2015/04/15/scikit-learn-video-2-setting-up-python-for-machine-learning/))
-#### 主要内容
   - scikit-learn优缺点
     - 优点1：机器学习的模型接口都是统一和一致的。例如fix，predict等
     - 优点2：提供很多参数以便于调参，同时还设定了常见的默认值
@@ -77,7 +76,6 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
     - 讲义中介绍了几个课程，这里不再赘述。
 
 ### 3. 通过著名的iris数据集开始scikit-learn ([video](https://www.youtube.com/watch?v=hd1W4CyPX58&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=3), [notebook](03_getting_started_with_iris.ipynb), [blog post](http://blog.kaggle.com/2015/04/22/scikit-learn-video-3-machine-learning-first-steps-with-the-iris-dataset/))
-#### 主要内容
   - 著名的iris数据集，以及其与机器学习的关系
   - 在scikit-learn加载数据集?
     - 可以在UCI网站在线下载或者用sklearn.datasets中load_iris    
@@ -94,7 +92,6 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
 在sklearn中，通常将存储特征的对象命名为X，存储结果标签的对象定义为y。X一般大写，表示为矩阵。y一般小写，表示为向量。
 
 ### 4. 通过scikit-learn训练模型 ([video](https://www.youtube.com/watch?v=RlQuVL6-qe8&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=4), [notebook](04_model_training.ipynb), [blog post](http://blog.kaggle.com/2015/04/30/scikit-learn-video-4-model-training-and-prediction-with-k-nearest-neighbors/))
-#### 主要内容
   - K-nearest neighbors分类模型
     - 设定一个K值
     - 在训练集中，选择与未知数据最近的k个数据
@@ -115,7 +112,6 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
 课后kevin给出了另外一个关于算法的视频课程，值得学习。
 
 ### 5. 比较scikit-learn中的训练模型 ([video](https://www.youtube.com/watch?v=0pP4EwWJgIU&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=5), [notebook](05_model_evaluation.ipynb), [blog post](http://blog.kaggle.com/2015/05/14/scikit-learn-video-5-choosing-a-machine-learning-model/))
-#### 主要内容
   - 如何为监督学习任务选择模型，讲述了两个办法：
     - **在整个数据集上训练和测试模型**，训练和测试的数据相同。
       - 通过该方法比较了逻辑回归、knn-5，knn-1。其中knn-1 accuracy竟然为1
@@ -130,7 +126,6 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
     # shuffle：分离前是否需要混洗，重新排序数据
     # stratify:是否按照类别或某个标签分类
     ```
-    -
   - 如何计算分类模型的accuracy:
     - 通过sklearn.metrics包中的accuracy_score(y, y_pred)函数。
     ```
@@ -145,9 +140,7 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
     - **重要经验**：当选定模型和最优参数后，用真个数据集重新训练模型是非常必要的。
   - 如何在样本之外，评估模型近似性能
 
-
 ### 6. 数据科学处理流程: pandas, seaborn, scikit-learn ([video](https://www.youtube.com/watch?v=3ZWuPVWq7p4&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=6), [notebook](06_linear_regression.ipynb), [blog post](http://blog.kaggle.com/2015/05/28/scikit-learn-video-6-linear-regression-plus-pandas-seaborn/))
-#### 主要内容
   - 如何用pandas读取数据
     - 利用read_csv的index_col参数，可以将数据中的指定列作为dataframe的index。例如index_col=0
   - 如何用seaborn对数据进行可视化
@@ -160,8 +153,9 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
                 size=7, aspect=0.7, king='reg')
     # 输出图中直线表示拟合直线，蓝色区域表示95%的置信区间，通过图片可以直观看到数据符合线性特性，因此线性回归模型是一个好的可选模型
     ```
+
   - 线性回归以及其如何工作     
-  $$ y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_nx_n $$
+    $$ y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_nx_n $$  
     - 线性回归优缺点
       - 优点：运行速度快，并且随着数据规模花销线性增长;
       - 优点：无需调参（无超参数）
@@ -188,14 +182,21 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
   ```
   - 回归问题的评估指标:
     - **平均绝对误差， Mean Absolute Error** (MAE) 是误差绝对值的均值:
+
       $$\frac 1n\sum_{i=1}^n|y_i-\hat{y}_i|$$
+
     - **均方误差，Mean Squared Error** (MSE)误差平方的均值:
+
       $$\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2$$
+
+      **注意**：在sklearn的cross_val_score计算结果为负值，sklearn认为score越大越好，例如分类中的精确度。精确度是reward function，而MSE是loss function。优化中，reward函数求最大值，而loss函数求最小值。为了某些优化算法一致（同时求最大值），sklearn在均方误差结果中增加了负号。并且自0.18版本后将参数改为`scoring=neg_mean_squared_error`。该问题sklearn社区一直存在争议。见[MSE is negative when returned by cross_val_score](https://github.com/scikit-learn/scikit-learn/issues/2439)
+
     - **均方根误差， Root Mean Squared Error** (RMSE) 均方误差的平方根:
+
       $$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$
 
     - sklearn代码：
-    
+
       ```
       # calculate MAE using scikit-learn
       from sklearn import metrics
@@ -258,6 +259,7 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
   - k-折交叉验证 **两个重要经验**：
     - k通常取值为10
     - 分类中，采用分层抽样(**stratified sampling**)，使每个子集中不同类别数据比例相同。sklearn的`cross_val_score`实现了该功能。交叉验证的示例如下，实例是关于KNN模型，代码对参数K进行从1到31的遍历搜索，针对每个k值，利用`cross_val_score`获得10个10-折交叉验证准确性，并将其均值存储到到`k_scores`列表。注意，在使用`cross_val_score`中无需手工分离训练和测试集。
+
     ```
     from sklearn.cross_validation import cross_val_score
 
@@ -268,26 +270,106 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
       knn = KNeighborsClassifier(n_neighbors=k)
       scores = cross_val_score(knn, X, y, cv=10, scoring='accuracy')
       k_scores.append(scores.mean())
-    print(k_scores)
+    print(k_scores)    
     ```
-
+  - **注意**：在选择最优参数是，同等情况下，可以考虑使模型简单的参数，因为模型越简单，过拟合的情况越小。
   - 如何克服k-折交叉验证的限制
   - 用交叉验证来调试参数，选择模型和选择特征
-  - 交叉验证的一些提升
+    - 利用交叉验证，在KNN、逻辑回归之间进行模型选择：
+    ```
+    # 10-fold cross-validation with the best KNN model
+    knn = KNeighborsClassifier(n_neighbors=20)
+    print(cross_val_score(knn, X, y, cv=10, scoring='accuracy').mean())
+    #结果是：0.98
+
+    # 10-fold cross-validation with logistic regression
+    from sklearn.linear_model import LogisticRegression
+    logreg = LogisticRegression()
+    print(cross_val_score(logreg, X, y, cv=10, scoring='accuracy').mean())
+    #结果是：0.95
+    #对比两个结果，KNN模型更好。
+    ```
+    - 利用交叉验证，进行特征选取，利用线性回归模型进行选择。通常步骤为：
+      - 先用线性回归去看每个参数的影响系数
+      - 将影响系数最小的那个去除，对比去除前后的结果
+      - 关于特征选取，有XXXXXX方法（后续我将专门写一篇笔记）
+  - 交叉验证的提升建议
+    - 重复多次交叉验证
+      - 由于k个子集划分具有随机性，因此可以重复多次交叉验证，并计算平均值
+      - 通过多次重复交叉验证，减少评估的方差，从而增加评估样本外性能
+  - 创建一个hold-out（剩余）子集
+    - 在训练模型之前，将数据中的部分取出来作为剩余子集    
+    - 用除剩余子集之外的所有数据，进行交叉验证训练模型，并选择最优模型在剩余子集测试。
+    - 剩余子集不参与模型训练，因此也就是真正的样本外数据
+  - 先进行交叉验证中，然后再进行特征工程和选取（该方法没有太理解）
+    - 通常，在交叉验证之前，进行特征选取工作，但是我们可以用所有特征进行交叉验证，这样可以更好的评估样本外数据。
 
 ### 8. 高效搜索最优参数 ([video](https://www.youtube.com/watch?v=Gol_qOgRqfA&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=8), [notebook](08_grid_search.ipynb), [blog post](http://blog.kaggle.com/2015/07/16/scikit-learn-video-8-efficiently-searching-for-optimal-tuning-parameters/))
-#### 主要内容
-  - 用k-折交叉验证搜索最优参数
-  - 提升搜索性能
+
+  - 用k-折交叉验证调参
+    - `GridSearchCV`：
+      - 输入：定义参数的可能的取值集合，指定模型
+      - 输出：自动运行交叉验证，并记录参数每个取值的评估得分(scores)，
+
+      ```
+      from sklearn.grid_search import GridSearchCV
+
+      # define the parameter values that should be searched
+      k_range = list(range(1, 31))
+      #k_range为列表[1,2,3,...,30]
+
+      # create a parameter grid: map the parameter names to the values that should be searched
+      param_grid = dict(n_neighbors=k_range)
+      #param_grid为字典{'n_neighbors': [1, 2, ..., 30]}，字典中key为模型的参数名称，values为参数取值范围。
+
+      # instantiate the grid
+      grid = GridSearchCV(knn, param_grid, cv=10, scoring='accuracy')
+      #将n_jobs = -1，可使得计算进行处理，前提是计算机硬件和操作系统支持并行计算
+
+      # fit the grid with data，该步骤可能需要一段时间，取决于数据的多少和算法的复杂度
+      grid.fit(X, y)
+
+      # view the complete results (list of named tuples)
+      grid.grid_scores_
+      #输出为结果列表（元素为nametuple，均值是最关注的，方差过大表示评估不够准确）：
+      # [mean: 0.96000, std: 0.05333, params: {'n_neighbors': 1},
+      #  mean: 0.95333, std: 0.05207, params: {'n_neighbors': 2},
+      #  mean: 0.96667, std: 0.04472, params: {'n_neighbors': 3},
+
+      # 每一列是一个字典，可以查询不同的计算结果
+      print(grid.grid_scores_[0].parameters)
+      print(grid.grid_scores_[0].cv_validation_scores)
+      print(grid.grid_scores_[0].mean_validation_score)
+
+      # examine the first tuple
+      print(grid.grid_scores_[0].parameters)
+      print(grid.grid_scores_[0].cv_validation_scores)
+      print(grid.grid_scores_[0].mean_validation_score)
+
+      # create a list of the mean scores only
+      grid_mean_scores = [result.mean_validation_score for result in grid.grid_scores_]
+      print(grid_mean_scores)
+
+      # examine the best model 如果最好的score有两个或两个以上，将返回第一个最好的
+      print(grid.best_score_)
+      print(grid.best_params_)
+      print(grid.best_estimator_)
+      ```
+  - 如何让调参更高效
   - 一次搜索多个最优参数
-  - 在预测前，如何处理最优参数W
-  - 减少搜索参数的计算开销
+  - 在预测前，如何处理最优参数
+    - 在真正预测前，使用最优参数，将所有数据给模型，进行重新训练，从而得到最终用于生产的模型
+  - 减少搜索参数的计算开销：使用`RandomizedSearchCV`
+    - 如该参数空间很大，那使用上述方法遍历所有参数组合几乎无法计算
+    - `RandomizedSearchCV`在参数空间里，随机选择而不是全部选择，进行交叉验证。可以通过随机选择的参数个数控制交叉验证的次数。
+    - 如参数是连续的，而不是离散有线的，
 
 ### 9. 分类模型的评估 ([video](https://www.youtube.com/watch?v=85dtiMz9tSo&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=9), [notebook](09_classification_metrics.ipynb), [blog post](http://blog.kaggle.com/2015/10/23/scikit-learn-video-9-better-evaluation-of-classification-models/))
-#### 主要内容
+
   - 模型评估的目的，以及常用评估过程
   - 分类准确性使用和限制
   - 混淆矩阵（confusion matrix）描述分类器性能
+    - 如何分类问题中有5个分类，混淆矩阵就是5*5的矩阵
   - 混淆矩阵（confusion matrix）衍生的其他矩阵
   - 通过改变分类的阈值，调整分离器性能
   - ROC曲线作用
@@ -296,7 +378,7 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
 ### 基于文本的数据分析
 
 PyCon 2016会议上，老师讲解的3个小时的基于文本数据的分析。 [tutorial video](https://www.youtube.com/watch?v=ZiKMIuYidY0&list=PL5-da3qGB5ICeMbQuqbbCOQWcS6OYBr5A&index=10)
-#### 主要内容
+
 1. scikit-learn建模 (复习)
 2. 用数字数据表示文本数据
 3. 用pandas提取分本数据
