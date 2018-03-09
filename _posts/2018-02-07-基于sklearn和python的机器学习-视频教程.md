@@ -372,6 +372,19 @@ Data School的Kevin Markham讲解的10次课程。语速慢，配合youtube自�
     - 如何分类问题中有5个分类，混淆矩阵就是5*5的矩阵
   - 混淆矩阵（confusion matrix）衍生的其他矩阵
   - 通过改变分类的阈值，调整分离器性能
+    - 主要代码如下，如需看完成程序请参照课程github中讲义
+
+    ```
+    # store the predicted probabilities for class 1
+    y_pred_prob = logreg.predict_proba(X_test)[:, 1]
+
+    # predict diabetes if the predicted probability is greater than 0.3
+    from sklearn.preprocessing import binarize
+    y_pred_class = binarize([y_pred_prob], 0.3)[0]
+
+    print(metrics.confusion_matrix(y_test, y_pred_class))
+
+    ```
   - ROC曲线作用
   - Area Under the Curve (AUC)与分类精确性的区别
 
